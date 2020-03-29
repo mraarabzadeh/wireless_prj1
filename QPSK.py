@@ -59,20 +59,19 @@ class signal():
                 numb+=1
         print(numb / len(transfered))
 if __name__ == "__main__":
-    snr = int(input())
+    snr = float(input())
     random_seq = np.random.randint(0,2,1000)
     random_seq = ''.join([str(i) for i in random_seq])
-    random_seq 
     # print(random_seq)
     tr = signal(random_seq)
 
-    plt.scatter(tr.gray_code_list_I, tr.gray_code_list_Q)
+    plt.scatter(range(1000),[int(i) for i in random_seq])
     plt.show()
     tr.set_SNR(snr)
     result = tr.transfer()
-    # print(result)
-    plt.scatter([item[0] for item in result], [item[1] for item in result])
-    plt.show()
     result = tr.get_data(result)
+    # print(result)
+    plt.scatter(range(1000), [item for item in result])
+    plt.show()
     # print(result)
     tr.calc_acc(random_seq,result)
